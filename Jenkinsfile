@@ -21,7 +21,8 @@ pipeline {
         }
         stage ('deployment') {
             steps {
-               sh 'docker run -d --name application -p 9001:8080 tapp'
+                sh 'docker rm application -f'
+                sh 'docker run -d --name application -p 9001:8080 tapp'
             }
         }
     }
