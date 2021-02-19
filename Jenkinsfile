@@ -19,5 +19,10 @@ pipeline {
                 sh 'docker build -t tapp .'
             }
         }
+        stage ('deployment') {
+            steps {
+               sh 'docker run -d -p 6000:8080 tapp'
+            }
+        }
     }
 }
