@@ -14,5 +14,10 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage ('docker image') {
+            steps {
+                sh 'docker build -t tapp .'
+            }
+        }
     }
 }
